@@ -4,12 +4,10 @@ const homeRouter = express.Router();
 homeRouter.get('/', (req, res) => {
   let firstName = 'Marlon';
   let lastName = 'Esparza';
-  let age = 24;
 
-  res.render('index', {
+  res.render('pages/index', {
     firstName,
-    lastName,
-    age
+    lastName
   });
 });
 
