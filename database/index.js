@@ -7,7 +7,7 @@ const connection = new sequelize.Sequelize(
 });
 
 connection.authenticate()
-  .then(result => {
+  .then(() => {
     console.log('DB connected successfully');
     return;
   })
