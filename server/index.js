@@ -10,7 +10,7 @@ const authRouter = require('./api/authRouter');
 const homeRouter = require('./api/homeRouter');
 
 const app = express();
-const port = 8000;
+const port = 8001;
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true}));
