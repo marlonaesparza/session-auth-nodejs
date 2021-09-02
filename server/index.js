@@ -4,7 +4,6 @@ require('./../database/index');
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const sessionAuth = require('./middleware/sessionAuth');
 
 const sessionRouter = require('./api/sessionRouter');
 const authRouter = require('./api/authRouter');
