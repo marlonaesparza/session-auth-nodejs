@@ -1,6 +1,6 @@
 # session-auth-nodejs
 
-A session authorization service (for development).
+A NodeJS session and authorization microservice.
 
 ## Getting Started
 
