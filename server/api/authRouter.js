@@ -1,26 +1,12 @@
 const express = require('express');
+const auth = require('../middleware/sessionAuth');
+
 const authRouter = express.Router();
+authRouter.use(auth.authSession);
 
-//--SIGN UP FUNCTIONALITY--//
-
-authRouter.get('/signup', (req, res) => {
-  res.render('pages/signup');
+authRouter.get('/', (req, res) => {
+  // Upon authorized session:
+  // 1. get home   
 });
-
-authRouter.post('/signup', (req, res) => {
-  console.log(req.body);
-  res.end();
-});
-
-//--LOGIN FUNCTIONALITY--//
-
-authRouter.get('/login', (req, res) => {
-  res.render('pages/login');
-})
-
-authRouter.post('/login', (req, res) => {
-  console.log(req.body);
-  res.end();
-})
 
 module.exports = authRouter;
