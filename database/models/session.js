@@ -1,4 +1,4 @@
-const {connection, sequelize} = require('./../index');
+const { connection, sequelize } = require('./../index');
 
 const Session = connection.define('Session', {
   id: {
@@ -24,7 +24,7 @@ const Session = connection.define('Session', {
 
 Session.sync({force: true})
   .then(() => {
-    console.log('Session table recreated successfully');
+    console.log('Sessions table recreated successfully');
   })
 
 module.exports = Session;

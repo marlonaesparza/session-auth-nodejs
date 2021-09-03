@@ -5,8 +5,11 @@ const authRouter = express.Router();
 authRouter.use(auth.authSession);
 
 authRouter.get('/', (req, res) => {
-  // Upon authorized session:
-  // 1. get home   
+  let session = req.query.session ?
+    JSON.parse(req.query.session) :
+    {};
+
+  res.json({ session });
 });
 
 module.exports = authRouter;
