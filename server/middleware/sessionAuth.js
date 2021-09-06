@@ -4,7 +4,7 @@ const { createHash } = require('./../lib/hash');
 
 const createSession = (req, res, next) => {
   let hpp_session = req.query;
-  console.log('7 CREATE SESSION:', hpp_session);
+  
   Bluebird.resolve(hpp_session)
     .then(session => {
       if (!session.hash) {
