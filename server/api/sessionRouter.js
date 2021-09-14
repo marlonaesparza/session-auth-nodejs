@@ -6,7 +6,7 @@ const sessionRouter = express.Router();
 
 sessionRouter.get('/createSession', auth.createSession, (req, res) => {
   let session = req.hpp_session;
-  res.json({ session });
+  return res.json({ session });
 });
 
 sessionRouter.patch('/updateSession', (req, res) => {
@@ -16,11 +16,11 @@ sessionRouter.patch('/updateSession', (req, res) => {
     where: { hash: hash }
   })
     .then(updated => {
-      res.json({ updated })
+      return res.json({ updated })
     })
     .catch(error => {
       console.log(error);
-      res.json({});
+      return res.json({});
     })
 });
 

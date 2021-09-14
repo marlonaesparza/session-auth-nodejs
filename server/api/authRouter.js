@@ -9,7 +9,7 @@ authRouter.get('/', (req, res) => {
     JSON.parse(req.query.session) :
     {};
 
-  res.json({ session });
+  return res.json({ session });
 });
 
 module.exports = authRouter;
