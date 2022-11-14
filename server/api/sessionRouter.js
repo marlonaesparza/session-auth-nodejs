@@ -10,18 +10,36 @@ sessionRouter.get('/createSession', auth.createSession, (req, res) => {
 });
 
 sessionRouter.patch('/updateSession', (req, res) => {
-  let { uuid, hash } = req.body;
-
-  return Session.update({ userUUID: uuid }, {
+  let { userUUID, hash } = req.body;
+  return Session.update({ userUUID: userUUID }, {
     where: { hash: hash }
   })
     .then(updated => {
-      return res.json({ updated })
+      return res.json({ updated });
     })
     .catch(error => {
       console.log(error);
       return res.json({});
+    });
+});
+
+sessionRouter.delete('/deleteSession', (req, res) => {
+  let { uuid } = req.body;
+  console.log('Delete Session (UUID):', uuid, req.body);
+
+  return Session.destroy({
+    where: {
+      userUUID: uuid
+    }
+  })
+    .then(results => {
+      console.log('Delete Session (result):', results);
+      return res.json({});
     })
+    .catch(error => {
+      console.log(error);
+      return res.json({});
+    });
 });
 
 module.exports = sessionRouter;

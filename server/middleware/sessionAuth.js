@@ -49,14 +49,14 @@ const authSession = (req, res, next) => {
     next();
   })
   .catch(session => {
-      let queryString = session ?
-        Object.keys(session)
-          .map(key => `${key}=${session[key]}`)
-          .join('&')
-        : '';
+    let queryString = session ?
+      Object.keys(session)
+        .map(key => `${key}=${session[key]}`)
+        .join('&')
+      : '';
 
-      res.redirect(`session/createSession?${queryString}`);
-    });
+    res.redirect(`session/createSession?${queryString}`);
+  });
 };
 
 module.exports = {
